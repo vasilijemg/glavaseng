@@ -1,0 +1,20 @@
+---
+interface Props { number: string; title: string; description: string; linkLabel: string; }
+const { number, title, description, linkLabel } = Astro.props;
+---
+<article class="project-card">
+  <div class="project-card__top"><span>{number}</span><span class="project-card__mark">↗</span></div>
+  <h3>{title}</h3>
+  <p>{description}</p>
+  <a class="text-link" href="/contact">{linkLabel}</a>
+</article>
+
+<style>
+  .project-card { display: flex; min-height: 22rem; flex-direction: column; padding: 1.5rem; background: var(--color-off-white); }
+  .project-card__top { display: flex; justify-content: space-between; margin-bottom: 4rem; color: var(--color-teal); font-size: 0.875rem; font-weight: 500; }
+  .project-card__mark { font-size: 1.4rem; }
+  .project-card h3 { max-width: 20rem; margin-bottom: 0.75rem; }
+  .project-card p { max-width: 26rem; margin-bottom: 1.5rem; color: var(--color-slate); font-size: 1rem; line-height: 1.6; }
+  .project-card .text-link { margin-top: auto; }
+  @media (max-width: 44rem) { .project-card { min-height: 18rem; } .project-card__top { margin-bottom: 3rem; } }
+</style>
