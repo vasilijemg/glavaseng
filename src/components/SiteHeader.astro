@@ -18,7 +18,6 @@ const isCurrentPage = (href: string) => Astro.url.pathname === href || Astro.url
         <a class:list={{ "is-active": isCurrentPage(href) }} href={href} aria-current={isCurrentPage(href) ? "page" : undefined}>{label}</a>
       ))}
     </nav>
-    <a class="header-contact" href="/contact" data-analytics-event="contact_click" data-analytics-location="header">Start a conversation <span>↗</span></a>
   </div>
 </header>
 <style>

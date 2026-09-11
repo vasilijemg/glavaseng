@@ -4,6 +4,7 @@ import SiteHeader from "../components/SiteHeader.astro";
 import SiteFooter from "../components/SiteFooter.astro";
 import ServiceCard from "../components/ServiceCard.astro";
 import ProjectCard from "../components/ProjectCard.astro";
+import ContactCta from "../components/ContactCta.astro";
 import { CONTACT_EMAIL } from "../constants/site";
 import { workMeta } from "../data/workMeta";
 
@@ -33,7 +34,7 @@ const projects = [
         <div class="hero__copy">
           <p>U-value calculations, condensation risk assessments and thermal-bridge calculations for façade and building-envelope projects.</p>
           <p class="hero__detail">2D and 3D thermal modelling for standard and complex junctions.</p>
-          <a class="text-link" href="/contact" data-analytics-event="contact_click" data-analytics-location="home_hero">Discuss a project</a>
+          <ContactCta location="home_hero" />
         </div>
       </div>
       <div class="container hero__line" aria-hidden="true"><span></span><span>01 / 05</span></div>
@@ -67,7 +68,7 @@ const projects = [
     <section class="contact section" id="contact">
       <div class="container contact__inner">
         <div><p class="eyebrow">Start a project</p><h2>Need a thermal calculation?</h2></div>
-        <div><p>Send the relevant detail and required calculation.</p><a class="button" href={`mailto:${CONTACT_EMAIL}`} data-analytics-event="contact_click" data-analytics-location="home_cta">Contact <span>↗</span></a></div>
+        <div><p>Send the relevant detail and required calculation.</p><ContactCta label="Contact" href={`mailto:${CONTACT_EMAIL}`} variant="inverse" location="home_cta" /></div>
       </div>
     </section>
   </main>
