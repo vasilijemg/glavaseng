@@ -2,18 +2,25 @@
 import "../styles/global.css";
 import Analytics from "../components/Analytics.astro";
 import { CONTACT_EMAIL, SITE_URL } from "../constants/site";
+import { services } from "../data/services";
+import { work } from "../data/work";
+import { workMeta } from "../data/workMeta";
 
-interface Props {
-  title?: string;
-  description?: string;
-}
+interface Props { title?: string; description?: string; }
 
-const {
-  title = "Glavas Engineering | Façade thermal analysis",
-  description = "Façade thermal analysis, U-value calculations, condensation risk assessments and thermal-bridge calculations.",
-} = Astro.props;
-const canonicalUrl = new URL(Astro.url.pathname, SITE_URL).toString();
-const structuredData = { "@context": "https://schema.org", "@type": "ProfessionalService", name: "Glavas Engineering", url: SITE_URL, email: CONTACT_EMAIL, description, areaServed: "United Kingdom", serviceType: "Façade and building-envelope thermal analysis" };
+const { title = "Glavas Engineering | Facade thermal analysis", description } = Astro.props;
+const defaultDescription = "Facade thermal analysis, U-value calculations, condensation risk assessments and thermal-bridge calculations.";
+const pageDescriptions: Record<string, string> = {
+  "/": "Facade thermal analysis, U-value calculations, condensation risk assessments and thermal-bridge calculations for building-envelope projects.",
+  "/services": "Facade thermal analysis services including thermal bridge, condensation risk and U-value calculations.",
+  "/work": "Selected facade and building-envelope thermal assessment projects using 2D and 3D modelling.",
+  "/about": "About an architect specialising in facade and building-envelope thermal analysis and facade engineering.",
+  "/contact": "Contact Glavas Engineering about U-value calculations, condensation risk assessment and thermal bridge analysis.",
+};
+services.forEach((service) => { pageDescriptions[`/services/${service.slug}`] = service.intro; });
+work.forEach((project, index) => { pageDescriptions[`/work/${workMeta[index].slug}`] = project.intro; });
+const metaDescription = description ?? pageDescriptions[Astro.url.pathname] ?? defaultDescription;
+const structuredData = { "@context": "https://schema.org", "@type": "ProfessionalService", name: "Glavas Engineering", url: SITE_URL, email: CONTACT_EMAIL, description: metaDescription, areaServed: "United Kingdom", serviceType: "Facade and building-envelope thermal analysis" };
 ---
 <!doctype html>
 <html lang="en">
@@ -21,20 +28,18 @@ const structuredData = { "@context": "https://schema.org", "@type": "Professiona
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{title}</title>
-    <meta name="description" content={description} />
+    <meta name="description" content={metaDescription} />
     <meta name="theme-color" content="#ffffff" />
     <link rel="icon" type="image/svg+xml" href="/assets/brand/favicon.svg" />
-    <link rel="canonical" href={canonicalUrl} />
+    <link rel="canonical" href={new URL(Astro.url.pathname, SITE_URL).toString()} />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="Glavas Engineering" />
     <meta property="og:title" content={title} />
-    <meta property="og:description" content={description} />
-    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:description" content={metaDescription} />
+    <meta property="og:url" content={new URL(Astro.url.pathname, SITE_URL).toString()} />
     <meta name="twitter:card" content="summary" />
     <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
     <Analytics />
   </head>
-  <body>
-    <slot />
-  </body>
+  <body><slot /></body>
 </html>
