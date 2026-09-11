@@ -4,6 +4,7 @@ import SiteHeader from "../components/SiteHeader.astro";
 import SiteFooter from "../components/SiteFooter.astro";
 import ServiceCard from "../components/ServiceCard.astro";
 import ProjectCard from "../components/ProjectCard.astro";
+import { CONTACT_EMAIL } from "../constants/site";
 
 const services = [
   { number: "01", title: "Condensation risk assessment", description: "Thermal modelling of façade junctions to determine minimum internal surface temperatures and assess surface condensation risk." },
@@ -65,7 +66,7 @@ const projects = [
     <section class="contact section" id="contact">
       <div class="container contact__inner">
         <div><p class="eyebrow">Start a project</p><h2>Need a thermal calculation?</h2></div>
-        <div><p>Send the relevant detail and required calculation.</p><a class="button" href="mailto:hello@glavas-engineering.com">Contact <span>↗</span></a></div>
+        <div><p>Send the relevant detail and required calculation.</p><a class="button" href={`mailto:${CONTACT_EMAIL}`}>Contact <span>↗</span></a></div>
       </div>
     </section>
   </main>
