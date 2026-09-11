@@ -1,0 +1,56 @@
+# Glavas Engineering
+
+Glavas Engineering provides architectural thermal calculations and façade engineering support for building-envelope projects. The practice specialises in thermal performance assessment of façade systems, wall assemblies, building-envelope junctions and complex façade connections.
+
+## Who this is for
+
+Glavas Engineering can support architects, façade engineers, façade contractors, building physicists, energy consultants, structural engineers, developers, building-envelope manufacturers and project teams who need clear technical thermal analysis.
+
+The work is suitable for new-build and refurbishment projects, individual construction details, façade packages and wider building-energy calculations. Experience includes more than 10 large-scale commercial projects in the UK.
+
+## Services
+
+### Thermal bridge calculations
+
+Psi (ψ)- and Chi (χ)-value calculations quantify linear and point thermal transmittance through building-envelope junctions, façade connections, brackets, fixings, balcony connections, slab edges, window interfaces and other thermal bridges. Assessments use 2D Flixo modelling or 3D COMSOL finite-element modelling, including BS EN ISO 10211 methodology where relevant.
+
+https://glavasengineering.com/services/thermal-bridge-calculations
+
+### Condensation risk assessment
+
+Surface condensation risk assessment identifies thermally critical locations and determines minimum internal surface temperatures at façade and building-envelope junctions. Assessments cover window and curtain-wall interfaces, sills, jambs, heads, parapets, slab edges, façade supports, structural penetrations and complex rainscreen details.
+
+https://glavasengineering.com/services/condensation-risk-assessment
+
+### U-value calculations
+
+U-value calculations assess heat transfer through solid and framed walls, rainscreen façades, curtain-wall framing, transoms, typical façade bays and other building-envelope assemblies. Where a one-dimensional calculation is insufficient, the assessment can combine U-values with Psi-values, Chi-values, 2D modelling and 3D thermal modelling.
+
+https://glavasengineering.com/services/u-value-calculations
+
+## Methods and outputs
+
+Depending on the project, calculations may include construction build-up review, material properties, boundary conditions, heat-flow analysis, temperature distributions, minimum internal surface temperatures, U-values, Psi-values, Chi-values, condensation-risk assessment and technical calculation reports.
+
+Modelling tools include Flixo, COMSOL and BuildDesk. Results can be provided for individual junctions or compiled into a consistent project-wide façade thermal-assessment package.
+
+## Selected work
+
+- https://glavasengineering.com/work/2d-condensation-risk-assessment
+- https://glavasengineering.com/work/solid-wall-u-value-thermal-bridge-assessment
+- https://glavasengineering.com/work/curtain-wall-u-value-psi-value-assessment
+- https://glavasengineering.com/work/3d-thermal-bridge-analysis-brise-soleil-connection
+- https://glavasengineering.com/work/3d-condensation-risk-assessment
+
+## About
+
+The practice is led by an architect specialising in façade and building-envelope thermal analysis, with a professional background in façade engineering and a Master of Building Architecture from Politecnico di Milano.
+
+https://glavasengineering.com/about
+
+## Contact
+
+For a thermal calculation, send the relevant drawings or construction details, required assessment, project location, applicable standard or criteria and deadline. If the scope is not fully defined, the available information can be reviewed to determine the appropriate assessment method.
+
+Email: vg@glavasengineering.com
+https://glavasengineering.com/contact
