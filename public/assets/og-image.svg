@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+  <title id="title">Glavas Engineering – Façade thermal analysis</title>
+  <desc id="desc">Façade thermal analysis, U-value calculations, condensation risk assessments and thermal bridge calculations.</desc>
+  <rect width="1200" height="630" fill="#ffffff"/>
+  <g fill="none" stroke="#dde2e1" stroke-width="2" opacity="0.9">
+    <path d="M-40 570 L260 410 L500 450 L760 290 L1240 40"/>
+    <path d="M-20 620 L280 460 L520 500 L790 335 L1240 100"/>
+    <path d="M440 630 L610 535 L780 555 L1120 365"/>
+    <path d="M660 145 L860 80 L1060 150 L1060 350 L860 415 L660 345 Z"/>
+    <path d="M860 80 L860 415 M660 145 L860 210 L1060 150 M660 345 L860 415"/>
+    <path d="M120 510 L120 390 L300 295 L300 415 Z"/>
+    <path d="M300 295 L470 340 L470 460 L300 415"/>
+  </g>
+  <g fill="#283238" font-family="Arial, Helvetica, sans-serif">
+    <text x="80" y="190" font-size="58" font-weight="500" letter-spacing="2">GLAVAS</text>
+    <text x="84" y="232" fill="#235c59" font-size="24" font-weight="500" letter-spacing="8">ENGINEERING</text>
+    <text x="80" y="390" font-size="60" font-weight="500">Façade thermal analysis.</text>
+    <text x="84" y="445" fill="#606b70" font-size="23">U-values · Condensation risk · Thermal bridges</text>
+  </g>
+</svg>
