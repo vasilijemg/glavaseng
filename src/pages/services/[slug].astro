@@ -1,0 +1,10 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import SiteHeader from "../../components/SiteHeader.astro";
+import SiteFooter from "../../components/SiteFooter.astro";
+import ServiceDetail from "../../components/ServiceDetail.astro";
+import { services } from "../../data/services";
+export function getStaticPaths() { return services.map((service) => ({ params: { slug: service.slug }, props: { service } })); }
+const { service } = Astro.props;
+---
+<BaseLayout title={`${service.title} | Glavas Engineering`}><SiteHeader /><main><ServiceDetail service={service} /></main><SiteFooter /></BaseLayout>

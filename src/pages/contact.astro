@@ -1,0 +1,5 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro"; import SiteHeader from "../components/SiteHeader.astro"; import SiteFooter from "../components/SiteFooter.astro";
+---
+<BaseLayout title="Contact | Glavas Engineering"><SiteHeader /><main><section class="section"><div class="container contact-page"><div><p class="eyebrow">Contact</p><h1>Need a thermal calculation?</h1></div><div><p>Send the relevant detail and project requirements.</p><a class="button" href="mailto:hello@glavas-engineering.com">hello@glavas-engineering.com ↗</a></div></div></section></main><SiteFooter /></BaseLayout>
+<style>.contact-page{display:grid;grid-template-columns:1fr 1fr;gap:4rem}.contact-page p{color:var(--color-slate)}@media(max-width:44rem){.contact-page{grid-template-columns:1fr;gap:2rem}}</style>

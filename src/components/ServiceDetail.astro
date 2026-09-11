@@ -1,0 +1,33 @@
+---
+import type { Service } from "../data/services";
+const { service } = Astro.props as { service: Service };
+---
+<section class="service-detail section">
+  <div class="container service-detail__hero"><p class="eyebrow">Services / Technical assessment</p><h1>{service.title}</h1><p class="intro">{service.intro}</p></div>
+  <div class="container service-detail__body">
+    <div class="service-detail__contents"><p class="eyebrow">On this page</p>{service.sections.map((section, index) => <a href={`#section-${index + 1}`}>{section.title}</a>)}</div>
+    <div class="service-detail__sections">{service.sections.map((section, index) => <section id={`section-${index + 1}`}><h2>{section.title}</h2>{section.text?.map((paragraph) => <p>{paragraph}</p>)}{section.items && <ul>{section.items.map((item) => <li>{item}</li>)}</ul>}</section>)}<div class="related"><p class="eyebrow">Related work</p>{service.related.map((item) => <a class="text-link" href="/work">{item}</a>)}</div></div>
+  </div>
+</section>
+<section class="service-cta"><div class="container"><h2>{service.cta}</h2><p>Send the relevant detail and project requirements.</p><a class="button" href="/contact">Discuss a project <span>↗</span></a></div></section>
+<style>
+  .service-detail__hero { padding-bottom: 5rem; border-bottom: 1px solid var(--color-light-grey); }
+  .service-detail h1 { max-width: 58rem; }
+  .intro { max-width: 45rem; color: var(--color-slate); font-size: clamp(1.2rem, 2vw, 1.5rem); }
+  .service-detail__body { display:grid; grid-template-columns: 15rem 1fr; gap: clamp(3rem, 8vw, 9rem); padding-top: 5rem; }
+  .service-detail__contents { display:flex; flex-direction:column; align-self:start; gap:.8rem; position:sticky; top:2rem; }
+  .service-detail__contents a { color:var(--color-slate); font-size:.9rem; text-decoration:none; }
+  .service-detail__contents a:hover { color:var(--color-teal); }
+  .service-detail__sections { max-width: var(--reading-width); }
+  .service-detail__sections section { padding-bottom:3.5rem; margin-bottom:3.5rem; border-bottom:1px solid var(--color-light-grey); scroll-margin-top:2rem; }
+  .service-detail__sections h2 { font-size:clamp(1.7rem, 3vw, 2.5rem); }
+  .service-detail__sections p { color:var(--color-slate); }
+  .service-detail__sections ul { padding-left:1.2rem; color:var(--color-slate); }
+  .service-detail__sections li { padding:.3rem 0; }
+  .related { display:flex; flex-direction:column; align-items:flex-start; gap:.8rem; }
+  .service-cta { padding:5rem 0; background:var(--color-teal); color:var(--color-white); }
+  .service-cta h2 { margin-bottom:.5rem; }
+  .service-cta p { color:var(--color-light-grey); }
+  .service-cta .button { margin-top:1rem; border-color:var(--color-white); background:var(--color-white); color:var(--color-teal); }
+  @media(max-width:44rem) { .service-detail__hero { padding-bottom:3rem; } .service-detail__body { display:block; padding-top:3rem; } .service-detail__contents { position:static; margin-bottom:3rem; padding-bottom:1.5rem; border-bottom:1px solid var(--color-light-grey); } .service-detail__sections section { padding-bottom:2.5rem; margin-bottom:2.5rem; } }
+</style>
