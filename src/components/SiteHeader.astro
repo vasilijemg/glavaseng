@@ -2,11 +2,11 @@
   <div class="container site-header__inner">
     <a class="logo" href="/" aria-label="Glavas Engineering home"><img src="/assets/brand/logo-charcoal.svg" alt="Glavas Engineering" /></a>
     <input class="menu-toggle" type="checkbox" id="menu-toggle" />
-    <label class="menu-button" for="menu-toggle" aria-label="Toggle navigation"><span></span><span></span><span></span></label>
+    <label class="menu-button" for="menu-toggle" aria-label="Toggle navigation" data-analytics-event="menu_open"><span></span><span></span><span></span></label>
     <nav aria-label="Primary navigation">
       <a href="/services">Services</a><a href="/work">Work</a><a href="/about">About</a><a href="/contact">Contact</a>
     </nav>
-    <a class="header-contact" href="/contact">Start a conversation <span>↗</span></a>
+    <a class="header-contact" href="/contact" data-analytics-event="contact_click" data-analytics-location="header">Start a conversation <span>↗</span></a>
   </div>
 </header>
 <style>

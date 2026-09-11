@@ -9,9 +9,9 @@ const { images, title } = Astro.props;
     </div>
   </div>
   <div class="carousel__controls">
-    <button class="carousel__arrow" type="button" data-carousel-prev aria-label="Previous image">←</button>
+    <button class="carousel__arrow" type="button" data-carousel-prev aria-label="Previous image" data-analytics-event="project_navigation" data-analytics-direction="previous">←</button>
     <p class="carousel__counter" aria-live="polite"><span data-carousel-current>01</span> / {String(images.length).padStart(2, "0")}</p>
-    <button class="carousel__arrow" type="button" data-carousel-next aria-label="Next image">→</button>
+    <button class="carousel__arrow" type="button" data-carousel-next aria-label="Next image" data-analytics-event="project_navigation" data-analytics-direction="next">→</button>
   </div>
 </div>
 

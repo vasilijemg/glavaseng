@@ -1,5 +1,7 @@
 ---
 import "../styles/global.css";
+import Analytics from "../components/Analytics.astro";
+import { CONTACT_EMAIL, SITE_URL } from "../constants/site";
 
 interface Props {
   title?: string;
@@ -10,6 +12,8 @@ const {
   title = "Glavas Engineering | Façade thermal analysis",
   description = "Façade thermal analysis, U-value calculations, condensation risk assessments and thermal-bridge calculations.",
 } = Astro.props;
+const canonicalUrl = new URL(Astro.url.pathname, SITE_URL).toString();
+const structuredData = { "@context": "https://schema.org", "@type": "ProfessionalService", name: "Glavas Engineering", url: SITE_URL, email: CONTACT_EMAIL, description, areaServed: "United Kingdom", serviceType: "Façade and building-envelope thermal analysis" };
 ---
 <!doctype html>
 <html lang="en">
@@ -20,6 +24,15 @@ const {
     <meta name="description" content={description} />
     <meta name="theme-color" content="#ffffff" />
     <link rel="icon" type="image/svg+xml" href="/assets/brand/favicon.svg" />
+    <link rel="canonical" href={canonicalUrl} />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Glavas Engineering" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta name="twitter:card" content="summary" />
+    <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
+    <Analytics />
   </head>
   <body>
     <slot />

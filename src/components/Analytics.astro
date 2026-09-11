@@ -1,0 +1,28 @@
+---
+import { GA_MEASUREMENT_ID } from "../constants/analytics";
+---
+{GA_MEASUREMENT_ID && <>
+  <script async src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}></script>
+  <script is:inline define:vars={{ measurementId: GA_MEASUREMENT_ID }}>
+    window.dataLayer = window.dataLayer || [];
+    window.gtag = function () { window.dataLayer.push(arguments); };
+    window.gtag("js", new Date());
+    window.gtag("config", measurementId);
+  </script>
+  <script is:inline>
+    document.addEventListener("click", (event) => {
+      const element = event.target.closest("[data-analytics-event]");
+      if (!element || typeof window.gtag !== "function") return;
+      const eventName = element.dataset.analyticsEvent;
+      if (!eventName) return;
+      const parameters = {};
+      Object.entries(element.dataset).forEach(([key, value]) => {
+        if (key.startsWith("analytics")) {
+          const parameter = key.slice("analytics".length).replace(/^[A-Z]/, (letter) => letter.toLowerCase());
+          if (parameter !== "event") parameters[parameter] = value;
+        }
+      });
+      window.gtag("event", eventName, parameters);
+    });
+  </script>
+</>}
