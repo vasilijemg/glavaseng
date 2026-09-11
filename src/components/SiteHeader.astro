@@ -1,10 +1,22 @@
+---
+const navigation = [
+  { label: "Services", href: "/services" },
+  { label: "Work", href: "/work" },
+  { label: "About", href: "/about" },
+  { label: "Contact", href: "/contact" },
+];
+
+const isCurrentPage = (href: string) => Astro.url.pathname === href || Astro.url.pathname.startsWith(`${href}/`);
+---
 <header class="site-header">
   <div class="container site-header__inner">
     <a class="logo" href="/" aria-label="Glavas Engineering home"><img src="/assets/brand/logo-charcoal.svg" alt="Glavas Engineering" /></a>
     <input class="menu-toggle" type="checkbox" id="menu-toggle" />
     <label class="menu-button" for="menu-toggle" aria-label="Toggle navigation" data-analytics-event="menu_open"><span></span><span></span><span></span></label>
     <nav aria-label="Primary navigation">
-      <a href="/services">Services</a><a href="/work">Work</a><a href="/about">About</a><a href="/contact">Contact</a>
+      {navigation.map(({ label, href }) => (
+        <a class:list={{ "is-active": isCurrentPage(href) }} href={href} aria-current={isCurrentPage(href) ? "page" : undefined}>{label}</a>
+      ))}
     </nav>
     <a class="header-contact" href="/contact" data-analytics-event="contact_click" data-analytics-location="header">Start a conversation <span>↗</span></a>
   </div>
@@ -16,18 +28,20 @@
   .logo img { width: 100%; height: auto; }
   nav { display: flex; gap: 2rem; margin-left: auto; }
   nav a, .header-contact { color: var(--color-charcoal); font-size: 0.9375rem; font-weight: 500; text-decoration: none; }
+  nav a { padding-block: 0.25rem; border-bottom: 2px solid transparent; transition: color 180ms ease, border-color 180ms ease; }
+  nav a:hover, nav a:focus-visible, nav a.is-active { border-bottom-color: var(--color-teal); }
   nav a:hover, nav a:focus-visible, .header-contact:hover, .header-contact:focus-visible { color: var(--color-teal); }
   .header-contact { color: var(--color-teal); }
   .header-contact span { display: inline-block; margin-left: 0.35rem; }
   .menu-toggle, .menu-button { display: none; }
   @media (max-width: 52rem) { nav { gap: 1rem; } .header-contact { display: none; } }
   @media (max-width: 36rem) {
-    .site-header { padding: 1.25rem 0; }
+    .site-header { position: sticky; top: 0; z-index: 10; padding: 1.25rem 0; background: var(--color-white); }
     .menu-button { position: relative; display: block; width: 2.5rem; height: 2.5rem; cursor: pointer; }
     .menu-button span { position: absolute; top: 50%; left: 50%; display: block; width: 1.5rem; height: 2px; background: var(--color-charcoal); transform: translate(-50%, -50%); transform-origin: center; transition: transform 160ms ease, opacity 160ms ease; }
     .menu-button span:first-child { margin-top: -0.35rem; }
     .menu-button span:last-child { margin-top: 0.35rem; }
-    nav { position: absolute; z-index: 5; top: 3.75rem; right: 0; left: 0; display: none; flex-direction: column; gap: 0; padding: 0.5rem 1rem; border: 1px solid var(--color-light-grey); background: var(--color-white); box-shadow: 0 0.75rem 2rem #28323818; }
+    nav { position: absolute; z-index: 5; top: 3.75rem; right: 0; left: auto; display: none; width: max-content; max-width: calc(100vw - 2rem); flex-direction: column; gap: 0; padding: 0.5rem 30px; border: 1px solid var(--color-light-grey); background: var(--color-white); box-shadow: 0 0.75rem 2rem #28323818; }
     nav a { padding: 0.75rem 0; font-size: 0.9375rem; }
     .menu-toggle:checked ~ nav { display: flex; }
     .menu-toggle:checked + .menu-button span:first-child { margin-top: 0; transform: translate(-50%, -50%) rotate(45deg); }
