@@ -1,7 +1,7 @@
 ---
 import "../styles/global.css";
 import Analytics from "../components/Analytics.astro";
-import { CONTACT_EMAIL, SITE_URL } from "../constants/site";
+import { CONTACT_EMAIL, LINKEDIN_URL, SITE_URL } from "../constants/site";
 import { services } from "../data/services";
 import { work } from "../data/work";
 import { workMeta } from "../data/workMeta";
@@ -30,6 +30,7 @@ const structuredData = {
   description: metaDescription,
   areaServed: "United Kingdom",
   serviceType: "Facade and building-envelope thermal analysis",
+  sameAs: [LINKEDIN_URL],
   contactPoint: { "@type": "ContactPoint", contactType: "customer enquiries", email: CONTACT_EMAIL },
 };
 ---
