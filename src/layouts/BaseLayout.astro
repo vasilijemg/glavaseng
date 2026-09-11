@@ -20,7 +20,18 @@ const pageDescriptions: Record<string, string> = {
 services.forEach((service) => { pageDescriptions[`/services/${service.slug}`] = service.intro; });
 work.forEach((project, index) => { pageDescriptions[`/work/${workMeta[index].slug}`] = project.intro; });
 const metaDescription = description ?? pageDescriptions[Astro.url.pathname] ?? defaultDescription;
-const structuredData = { "@context": "https://schema.org", "@type": "ProfessionalService", name: "Glavas Engineering", url: SITE_URL, email: CONTACT_EMAIL, description: metaDescription, areaServed: "United Kingdom", serviceType: "Facade and building-envelope thermal analysis" };
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  name: "Glavas Engineering",
+  url: SITE_URL,
+  logo: `${SITE_URL}/assets/brand/logo-charcoal.svg`,
+  email: CONTACT_EMAIL,
+  description: metaDescription,
+  areaServed: "United Kingdom",
+  serviceType: "Facade and building-envelope thermal analysis",
+  contactPoint: { "@type": "ContactPoint", contactType: "customer enquiries", email: CONTACT_EMAIL },
+};
 ---
 <!doctype html>
 <html lang="en">
