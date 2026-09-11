@@ -1,6 +1,6 @@
 <header class="site-header">
   <div class="container site-header__inner">
-    <a class="logo" href="/" aria-label="Glavas Engineering home">GLAVAS<br /><span>ENGINEERING</span></a>
+    <a class="logo" href="/" aria-label="Glavas Engineering home"><img src="/assets/brand/logo-charcoal.svg" alt="Glavas Engineering" /></a>
     <input class="menu-toggle" type="checkbox" id="menu-toggle" />
     <label class="menu-button" for="menu-toggle" aria-label="Toggle navigation"><span></span><span></span><span></span></label>
     <nav aria-label="Primary navigation">
@@ -12,8 +12,8 @@
 <style>
   .site-header { padding: 1.5rem 0; border-bottom: 1px solid var(--color-light-grey); }
   .site-header__inner { position: relative; display: flex; align-items: center; justify-content: space-between; gap: 2rem; }
-  .logo { color: var(--color-charcoal); font-size: 1rem; font-weight: 500; letter-spacing: 0.06em; line-height: 1.05; text-decoration: none; }
-  .logo span { color: var(--color-teal); font-size: 0.65em; letter-spacing: 0.18em; }
+  .logo { display: block; width: clamp(10.5rem, 17vw, 13rem); line-height: 0; text-decoration: none; }
+  .logo img { width: 100%; height: auto; }
   nav { display: flex; gap: 2rem; margin-left: auto; }
   nav a, .header-contact { color: var(--color-charcoal); font-size: 0.9375rem; font-weight: 500; text-decoration: none; }
   nav a:hover, nav a:focus-visible, .header-contact:hover, .header-contact:focus-visible { color: var(--color-teal); }
@@ -23,13 +23,15 @@
   @media (max-width: 52rem) { nav { gap: 1rem; } .header-contact { display: none; } }
   @media (max-width: 36rem) {
     .site-header { padding: 1.25rem 0; }
-    .menu-button { display: flex; width: 2rem; height: 2rem; flex-direction: column; justify-content: center; gap: 0.3rem; cursor: pointer; }
-    .menu-button span { display: block; width: 1.5rem; height: 1px; background: var(--color-charcoal); transition: transform 160ms ease, opacity 160ms ease; }
+    .menu-button { position: relative; display: block; width: 2.5rem; height: 2.5rem; cursor: pointer; }
+    .menu-button span { position: absolute; top: 50%; left: 50%; display: block; width: 1.5rem; height: 2px; background: var(--color-charcoal); transform: translate(-50%, -50%); transform-origin: center; transition: transform 160ms ease, opacity 160ms ease; }
+    .menu-button span:first-child { margin-top: -0.35rem; }
+    .menu-button span:last-child { margin-top: 0.35rem; }
     nav { position: absolute; z-index: 5; top: 3.75rem; right: 0; left: 0; display: none; flex-direction: column; gap: 0; padding: 0.5rem 1rem; border: 1px solid var(--color-light-grey); background: var(--color-white); box-shadow: 0 0.75rem 2rem #28323818; }
     nav a { padding: 0.75rem 0; font-size: 0.9375rem; }
     .menu-toggle:checked ~ nav { display: flex; }
-    .menu-toggle:checked + .menu-button span:first-child { transform: translateY(0.4rem) rotate(45deg); }
+    .menu-toggle:checked + .menu-button span:first-child { margin-top: 0; transform: translate(-50%, -50%) rotate(45deg); }
     .menu-toggle:checked + .menu-button span:nth-child(2) { opacity: 0; }
-    .menu-toggle:checked + .menu-button span:last-child { transform: translateY(-0.4rem) rotate(-45deg); }
+    .menu-toggle:checked + .menu-button span:last-child { margin-top: 0; transform: translate(-50%, -50%) rotate(-45deg); }
   }
 </style>
