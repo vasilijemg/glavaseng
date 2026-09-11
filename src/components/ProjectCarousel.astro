@@ -1,0 +1,54 @@
+---
+interface Props { images: string[]; title: string; }
+const { images, title } = Astro.props;
+---
+<div class="carousel" data-carousel>
+  <div class="carousel__viewport">
+    <div class="carousel__track">
+      {images.map((image, index) => <div class="carousel__slide"><img src={`/assets/projects/${image}`} alt={`${title} – image ${index + 1} of ${images.length}`} loading={index === 0 ? "eager" : "lazy"} /></div>)}
+    </div>
+  </div>
+  <div class="carousel__controls">
+    <button class="carousel__arrow" type="button" data-carousel-prev aria-label="Previous image">←</button>
+    <p class="carousel__counter" aria-live="polite"><span data-carousel-current>01</span> / {String(images.length).padStart(2, "0")}</p>
+    <button class="carousel__arrow" type="button" data-carousel-next aria-label="Next image">→</button>
+  </div>
+</div>
+
+<script>
+  document.querySelectorAll<HTMLElement>("[data-carousel]").forEach((carousel) => {
+    const track = carousel.querySelector<HTMLElement>(".carousel__track");
+    const slides = carousel.querySelectorAll<HTMLElement>(".carousel__slide");
+    const current = carousel.querySelector<HTMLElement>("[data-carousel-current]");
+    const previous = carousel.querySelector<HTMLButtonElement>("[data-carousel-prev]");
+    const next = carousel.querySelector<HTMLButtonElement>("[data-carousel-next]");
+    if (!track || !slides.length || !current || !previous || !next) return;
+
+    let index = 0;
+    const show = (nextIndex: number) => {
+      index = (nextIndex + slides.length) % slides.length;
+      track.style.transform = `translateX(-${index * 100}%)`;
+      current.textContent = String(index + 1).padStart(2, "0");
+    };
+    previous.addEventListener("click", () => show(index - 1));
+    next.addEventListener("click", () => show(index + 1));
+    carousel.addEventListener("keydown", (event) => {
+      if (event.key === "ArrowLeft") show(index - 1);
+      if (event.key === "ArrowRight") show(index + 1);
+    });
+    carousel.setAttribute("tabindex", "0");
+  });
+</script>
+
+<style>
+  .carousel { position: relative; width: 100%; margin-top: 1rem; }
+  .carousel__viewport { overflow: hidden; background: var(--color-off-white); }
+  .carousel__track { display: flex; transition: transform 280ms ease; will-change: transform; }
+  .carousel__slide { display: flex; width: 100%; min-width: 100%; align-items: center; justify-content: center; background: var(--color-off-white); }
+  .carousel__slide img { display: block; width: 100%; height: auto; max-height: 70vh; object-fit: contain; }
+  .carousel__controls { position: absolute; z-index: 1; inset: 0; display: flex; align-items: center; justify-content: space-between; padding: 0 1rem; pointer-events: none; }
+  .carousel__arrow { display: grid; width: 2.75rem; height: 2.75rem; place-items: center; border: 1px solid var(--color-light-grey); border-radius: 50%; background: var(--color-white); color: var(--color-teal); font: inherit; font-size: 1.25rem; cursor: pointer; pointer-events: auto; box-shadow: 0 .25rem 1rem #28323818; transition: background 160ms ease, color 160ms ease; }
+  .carousel__arrow:hover, .carousel__arrow:focus-visible { background: var(--color-teal); color: var(--color-white); }
+  .carousel__counter { position: absolute; bottom: 1rem; left: 50%; margin: 0; padding: .25rem .6rem; border-radius: 1rem; background: #ffffffdd; color: var(--color-slate); font-size: .875rem; box-shadow: 0 .15rem .5rem #28323826; transform: translateX(-50%); }
+  @media (prefers-reduced-motion: reduce) { .carousel__track { transition: none; } }
+</style>

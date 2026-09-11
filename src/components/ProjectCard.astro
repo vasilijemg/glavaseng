@@ -1,12 +1,12 @@
 ---
-interface Props { number: string; title: string; description: string; linkLabel: string; }
-const { number, title, description, linkLabel } = Astro.props;
+interface Props { number: string; title: string; description: string; linkLabel: string; href?: string; }
+const { number, title, description, linkLabel, href = "/contact" } = Astro.props;
 ---
 <article class="project-card">
   <div class="project-card__top"><span>{number}</span><span class="project-card__mark">↗</span></div>
   <h3>{title}</h3>
   <p>{description}</p>
-  <a class="text-link" href="/contact">{linkLabel}</a>
+  <a class="text-link" href={href}>{linkLabel}</a>
 </article>
 
 <style>
