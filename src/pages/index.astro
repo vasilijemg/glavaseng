@@ -26,6 +26,7 @@ const projects = [
   <SiteHeader />
   <main>
     <section class="hero section">
+      <img class="hero__blueprint" src="/assets/blueprint.svg" alt="" aria-hidden="true" />
       <div class="container hero__grid">
         <div>
           <p class="eyebrow">Glavas Engineering</p>
@@ -76,7 +77,9 @@ const projects = [
 </BaseLayout>
 
 <style>
-  .hero { padding-top: clamp(6rem, 14vw, 12rem); padding-bottom: clamp(4rem, 9vw, 8rem); }
+  .hero { position: relative; overflow: hidden; padding-top: clamp(6rem, 14vw, 12rem); padding-bottom: clamp(4rem, 9vw, 8rem); }
+  .hero__blueprint { position: absolute; inset: 0; width: 100%; height: 100%; color: var(--color-teal); opacity: 0.1; pointer-events: none; }
+  .hero__grid, .hero__line { position: relative; z-index: 1; }
   .hero__grid { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(18rem, 0.75fr); gap: 4rem; align-items: end; }
   .hero h1 { max-width: 46rem; margin-bottom: 0; }
   .hero__copy { max-width: 30rem; padding-bottom: 0.75rem; }
@@ -104,6 +107,7 @@ const projects = [
   .button span { margin-left: 0.6rem; }
   @media (max-width: 55rem) { .process__grid { gap: 4rem; } }
   @media (max-width: 44rem) {
+    .hero__blueprint { opacity: 0.075; }
     .hero__grid, .process__grid, .contact__inner { grid-template-columns: 1fr; gap: 2.5rem; }
     .hero__copy { padding-bottom: 0; }
     .hero__line { margin-top: 4rem; }
