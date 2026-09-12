@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000">
+  <g fill="none" stroke="#111827" vector-effect="non-scaling-stroke" stroke-linecap="square" stroke-linejoin="miter">
+    <g opacity=".12" stroke-width=".9">
+      <path d="M70 110H1530M70 210H1530M70 310H1530M70 410H1530M70 510H1530M70 610H1530M70 710H1530M70 810H1530M70 910H1530"/>
+      <path d="M120 55V955M220 55V955M320 55V955M420 55V955M520 55V955M620 55V955M720 55V955M820 55V955M920 55V955M1020 55V955M1120 55V955M1220 55V955M1320 55V955M1420 55V955"/>
+    </g>
+
+    <g opacity=".12" stroke-width="1.35">
+      <path d="M230 180H610V345H760V700H510V825H230Z"/>
+      <path d="M610 180V500H760M510 500H230M510 500V825"/>
+      <path d="M1000 220H1320V430H1240V760H900V580H1000Z"/>
+      <path d="M1000 430H1240M1080 430V760"/>
+      <path d="M350 180V265M350 335V500M610 260H690M690 260V345"/>
+    </g>
+
+    <g opacity=".1" stroke-width="1">
+      <path d="M195 145H795M195 145v18M795 145v18M195 154H795"/>
+      <path d="M195 860H545M195 842v18M545 842v18M195 851H545"/>
+      <path d="M865 185H1355M865 185v18M1355 185v18M865 194H1355"/>
+      <path d="M825 220V760M825 220h18M825 760h18M834 220V760"/>
+      <path d="M350 265a70 70 0 0 1 70 70"/>
+      <path d="M610 260a80 80 0 0 1 80 80"/>
+      <circle cx="1080" cy="540" r="34"/>
+      <circle cx="1080" cy="540" r="6"/>
+    </g>
+
+    <g opacity=".085" stroke-width=".9" stroke-dasharray="8 10">
+      <path d="M160 500H820M510 120V900"/>
+      <path d="M830 540H1390M1080 150V840"/>
+    </g>
+  </g>
+</svg>

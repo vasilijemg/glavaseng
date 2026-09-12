@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000">
+  <g fill="none" stroke="#111827" vector-effect="non-scaling-stroke">
+    <g opacity=".09" stroke-width=".9">
+      <path d="M90 140H1510M90 240H1510M90 340H1510M90 440H1510M90 540H1510M90 640H1510M90 740H1510M90 840H1510"/>
+      <path d="M150 90V900M250 90V900M350 90V900M450 90V900M550 90V900M650 90V900M750 90V900M850 90V900M950 90V900M1050 90V900M1150 90V900M1250 90V900M1350 90V900M1450 90V900"/>
+    </g>
+
+    <g opacity=".09" stroke-width="1.2">
+      <rect x="260" y="190" width="1080" height="610"/>
+      <path d="M260 315H1340M260 440H1340M260 565H1340M260 690H1340"/>
+      <path d="M440 190V800M620 190V800M800 190V800M980 190V800M1160 190V800"/>
+      <path d="M260 800L205 850H1395L1340 800"/>
+      <path d="M260 190L335 140H1265L1340 190"/>
+    </g>
+
+    <g opacity=".08" stroke-width="1">
+      <path d="M220 160H1380M220 160v18M1380 160v18M220 169H1380"/>
+      <path d="M190 190V800M190 190h18M190 800h18M199 190V800"/>
+      <path d="M1410 190V800M1392 190h18M1392 800h18M1401 190V800"/>
+      <path d="M350 120V870M530 120V870M710 120V870M890 120V870M1070 120V870M1250 120V870" stroke-dasharray="6 10"/>
+      <circle cx="800" cy="495" r="18"/>
+      <path d="M770 495H830M800 465V525"/>
+    </g>
+  </g>
+</svg>
