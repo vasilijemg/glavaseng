@@ -15,11 +15,11 @@ const services = [
 ];
 
 const projects = [
-  { number: "01", title: "2D Condensation Risk Assessment", description: "Project-scale assessment of façade junctions for internal surface temperature and condensation risk, typically covering 20–30+ details per project.", linkLabel: "View condensation risk assessment" },
-  { number: "02", title: "Solid Wall U-Value & Thermal Bridge Assessment", description: "U-, Psi- and Chi-value assessment of a wall assembly using BuildDesk, Flixo and COMSOL.", linkLabel: "View wall thermal assessment" },
-  { number: "03", title: "Curtain Wall U-Value & Psi-Value Assessment", description: "Frame U-value and glass-to-frame Psi-value assessment, including transom analysis using the applicable ISO methodology.", linkLabel: "View curtain wall assessment" },
-  { number: "04", title: "3D Thermal Bridge Analysis of a Brise Soleil Connection", description: "3D finite-element analysis of a complex façade connection to quantify its thermal-bridge performance.", linkLabel: "View 3D thermal bridge analysis" },
-  { number: "05", title: "3D Condensation Risk Assessment", description: "3D thermal analysis of a complex façade junction to determine minimum internal surface temperature and assess condensation risk.", linkLabel: "View 3D condensation assessment" },
+{ number: "01", title: "2D Condensation Risk Assessment", description: "Project-scale assessment of façade junctions for internal surface temperature and condensation risk, covering 20+ details for the project.", linkLabel: "View the project" },
+{ number: "02", title: "Solid Wall U-Value", description: "U-, Psi- and Chi-value assessment of a wall assembly using BuildDesk, Flixo and COMSOL.", linkLabel: "View the project" },
+{ number: "03", title: "Curtain Wall U-Value & Psi-Value Assessment", description: "Frame U-value and glass-to-frame Psi-value assessment, including transom analysis using the applicable ISO methodology.", linkLabel: "View the project" },
+{ number: "04", title: "3D Thermal Bridge Analysis of a Brise-Soleil Connection", description: "3D finite-element analysis of a complex façade connection to quantify its thermal-bridge performance.", linkLabel: "View the project" },
+{ number: "05", title: "3D Condensation Risk Assessment", description: "3D thermal analysis of a complex façade junction to determine minimum internal surface temperature and assess condensation risk.", linkLabel: "View the project" },
 ];
 ---
 <BaseLayout>
@@ -29,7 +29,6 @@ const projects = [
 
       <div class="container hero__grid">
         <div>
-          <p class="eyebrow">Glavas Engineering</p>
           <h1>Façade thermal analysis.</h1>
         </div>
         <div class="hero__copy">
@@ -85,8 +84,7 @@ const projects = [
   .hero__copy p { margin-bottom: 1.25rem; }
   .hero__detail { color: var(--color-slate); font-size: 1rem; }
   .service-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
-  .project-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1px; background: var(--color-light-grey); }
-  .project-grid :global(.project-card:last-child) { grid-column: span 1; }
+  .project-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1px; background: var(--color-light-grey); }
   .process__grid { display: grid; grid-template-columns: 0.8fr 1.2fr; gap: 8rem; }
   .steps { border-top: 1px solid var(--color-light-grey); }
   .step { display: grid; grid-template-columns: 4rem 1fr; gap: 1rem; padding: 1.5rem 0; border-bottom: 1px solid var(--color-light-grey); }
@@ -107,9 +105,7 @@ const projects = [
     .hero { background-image:url("/assets/blueprints/background-template-1-mobile.svg"); }
     .hero__grid, .process__grid, .contact__inner { grid-template-columns: 1fr; gap: 2.5rem; }
     .hero__copy { padding-bottom: 0; }
-
     .service-grid { grid-template-columns: 1fr; gap: 2.5rem; }
-    .project-grid { grid-template-columns: 1fr; }
-    .project-grid :global(.project-card:last-child) { grid-column: auto; }
+    .project-grid { grid-template-columns: 1fr; }
   }
 </style>
