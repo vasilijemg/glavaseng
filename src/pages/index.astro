@@ -38,7 +38,6 @@ const projects = [
           <ContactCta location="home_hero" />
         </div>
       </div>
-      <div class="container hero__line" aria-hidden="true"><span></span><span>01 / 05</span></div>
     </section>
 
     <section class="section section--soft" id="services">
@@ -79,17 +78,15 @@ const projects = [
 <style>
   .hero { position: relative; overflow: hidden; background:url("/assets/blueprints/background-template-1.svg") center / cover no-repeat; padding-top: clamp(6rem, 14vw, 12rem); padding-bottom: clamp(4rem, 9vw, 8rem); }
 
-  .hero__grid, .hero__line { position: relative; z-index: 1; }
+  .hero__grid { position: relative; z-index: 1; }
   .hero__grid { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(18rem, 0.75fr); gap: 4rem; align-items: end; }
   .hero h1 { max-width: 46rem; margin-bottom: 0; }
   .hero__copy { max-width: 30rem; padding-bottom: 0.75rem; }
   .hero__copy p { margin-bottom: 1.25rem; }
   .hero__detail { color: var(--color-slate); font-size: 1rem; }
-  .hero__line { display: flex; align-items: center; gap: 1rem; margin-top: 7rem; color: var(--color-slate); font-size: 0.75rem; }
-  .hero__line span:first-child { height: 1px; flex: 1; background: var(--color-light-grey); }
   .service-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
   .project-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1px; background: var(--color-light-grey); }
-  .project-grid :global(.project-card:last-child) { grid-column: span 2; min-height: 18rem; }
+  .project-grid :global(.project-card:last-child) { grid-column: span 1; }
   .process__grid { display: grid; grid-template-columns: 0.8fr 1.2fr; gap: 8rem; }
   .steps { border-top: 1px solid var(--color-light-grey); }
   .step { display: grid; grid-template-columns: 4rem 1fr; gap: 1rem; padding: 1.5rem 0; border-bottom: 1px solid var(--color-light-grey); }
@@ -110,7 +107,7 @@ const projects = [
     .hero { background-image:url("/assets/blueprints/background-template-1-mobile.svg"); }
     .hero__grid, .process__grid, .contact__inner { grid-template-columns: 1fr; gap: 2.5rem; }
     .hero__copy { padding-bottom: 0; }
-    .hero__line { margin-top: 4rem; }
+
     .service-grid { grid-template-columns: 1fr; gap: 2.5rem; }
     .project-grid { grid-template-columns: 1fr; }
     .project-grid :global(.project-card:last-child) { grid-column: auto; }

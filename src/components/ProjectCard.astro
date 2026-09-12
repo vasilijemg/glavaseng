@@ -16,6 +16,6 @@ const { number, title, description, linkLabel, href = "/contact" } = Astro.props
   .project-card__mark { font-size: 1.4rem; }
   .project-card h3 { max-width: 20rem; margin-bottom: 0.75rem; }
   .project-card p { max-width: 26rem; margin-bottom: 1.5rem; color: var(--color-slate); font-size: 1rem; line-height: 1.6; }
-  .project-card .contact-cta { align-self: flex-start; margin-top: auto; }
+  .project-card :global(.contact-cta) { align-self: flex-start; margin-top: auto; }
   @media (max-width: 44rem) { .project-card { min-height: 18rem; } .project-card__top { margin-bottom: 3rem; } }
 </style>
