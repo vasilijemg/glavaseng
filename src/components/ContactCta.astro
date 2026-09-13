@@ -5,6 +5,7 @@ interface Props {
   variant?: "default" | "inverse" | "header";
   location?: string;
   event?: string;
+  inverted?: boolean;
 }
 
 const {
@@ -13,10 +14,11 @@ const {
   variant = "default",
   location = "cta",
   event = "contact_click",
+  inverted = false,
 } = Astro.props;
 ---
 
-<a class:list={["contact-cta", `contact-cta--${variant}`]} href={href} data-analytics-event={event} data-analytics-location={location}>
+<a class:list={["contact-cta", "contact-cta--" + variant, { "contact-cta--inverted": inverted }]} href={href} data-analytics-event={event} data-analytics-location={location}>
   {label}<span aria-hidden="true">↗</span>
 </a>
 
@@ -27,6 +29,8 @@ const {
   .contact-cta:hover span, .contact-cta:focus-visible span { transform: translate(0.15rem, -0.15rem); }
   .contact-cta--inverse { border-color: var(--color-white); color: var(--color-white); }
   .contact-cta--inverse:hover, .contact-cta--inverse:focus-visible { border-color: var(--color-white); background: var(--color-white); color: var(--color-teal); }
+  .contact-cta--inverted { border-color: var(--color-teal); background: var(--color-teal); color: var(--color-white); }
+  .contact-cta--inverted:hover, .contact-cta--inverted:focus-visible { border-color: var(--color-teal); background: transparent; color: var(--color-teal); }
   .contact-cta--header { min-height: auto; padding: 0.45rem 0; border-width: 0 0 2px; border-radius: 0; }
   .contact-cta--header:hover, .contact-cta--header:focus-visible { border-color: var(--color-teal); background: transparent; color: var(--color-teal); transform: none; }
   @media (max-width: 36rem) { .contact-cta--header { display: none; } }

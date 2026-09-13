@@ -20,7 +20,7 @@ const projects = [
 { number: "02", title: "Solid Wall U-Value", description: "U-, Psi- and Chi-value assessment of a wall assembly using BuildDesk, Flixo and COMSOL.", linkLabel: "View the project" },
 { number: "03", title: "Curtain Wall U-Value & Psi-Value Assessment", description: "Frame U-value and glass-to-frame Psi-value assessment, including transom analysis using the applicable ISO methodology.", linkLabel: "View the project" },
 { number: "04", title: "3D Thermal Bridge Analysis of a Brise-Soleil Connection", description: "3D finite-element analysis of a complex façade connection to quantify its thermal-bridge performance.", linkLabel: "View the project" },
-{ number: "05", title: "3D Condensation Risk Assessment", description: "3D thermal analysis of a complex façade junction to determine minimum internal surface temperature and assess condensation risk.", linkLabel: "View the project" },
+
 ];
 ---
 <BaseLayout>
@@ -50,7 +50,8 @@ const projects = [
     <section class="section" id="work">
       <div class="container">
         <div class="section-heading"><p class="eyebrow">Selected work</p><h2>Clear analysis for complex details</h2></div>
-        <div class="project-grid">{projects.map((project, index) => <ProjectCard {...project} href={`/work/${workMeta[index].slug}`} />)}</div>
+        <div class="project-grid">{projects.map((project, index) => <ProjectCard {...project} href={"/work/" + workMeta[index].slug} />)}</div>
+        <div class="selected-work-cta"><ContactCta label="View more" href="/work" event="work_view_more" location="home_selected_work" inverted /></div>
       </div>
     </section>
 
@@ -81,6 +82,7 @@ const projects = [
   .hero__detail { color: var(--color-slate); font-size: 1rem; }
   .service-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
   .project-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1px; background: var(--color-light-grey); }
+  .selected-work-cta { display: flex; justify-content: flex-end; margin-top: 20px; }
   .process__grid { display: grid; grid-template-columns: 0.8fr 1.2fr; gap: 8rem; }
   .steps { border-top: 1px solid var(--color-light-grey); }
   .step { display: grid; grid-template-columns: 4rem 1fr; gap: 1rem; padding: 1.5rem 0; border-bottom: 1px solid var(--color-light-grey); }
@@ -94,6 +96,8 @@ const projects = [
     .hero__grid, .process__grid, .contact__inner { grid-template-columns: 1fr; gap: 2.5rem; }
     .hero__copy { padding-bottom: 0; }
     .service-grid { grid-template-columns: 1fr; gap: 2.5rem; }
-    .project-grid { grid-template-columns: 1fr; }
+    .project-grid { grid-template-columns: 1fr; }
+
+
   }
 </style>
