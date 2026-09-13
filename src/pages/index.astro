@@ -5,6 +5,7 @@ import SiteFooter from "../components/SiteFooter.astro";
 import ServiceCard from "../components/ServiceCard.astro";
 import ProjectCard from "../components/ProjectCard.astro";
 import ContactCta from "../components/ContactCta.astro";
+import DiscussProjectSection from "../components/DiscussProjectSection.astro";
 import { CONTACT_EMAIL } from "../constants/site";
 import { workMeta } from "../data/workMeta";
 
@@ -41,35 +42,30 @@ const projects = [
 
     <section class="section section--soft" id="services">
       <div class="container">
-        <div class="section-heading"><p class="eyebrow">Services</p><h2>What I do</h2></div>
+        <div class="section-heading"><p class="eyebrow">Services</p><h2>What we offer</h2></div>
         <div class="service-grid">{services.map((service) => <ServiceCard {...service} />)}</div>
       </div>
     </section>
 
     <section class="section" id="work">
       <div class="container">
-        <div class="section-heading"><p class="eyebrow">Selected work</p><h2>Technical clarity for complex details.</h2></div>
+        <div class="section-heading"><p class="eyebrow">Selected work</p><h2>Clear analysis for complex details</h2></div>
         <div class="project-grid">{projects.map((project, index) => <ProjectCard {...project} href={`/work/${workMeta[index].slug}`} />)}</div>
       </div>
     </section>
 
     <section class="process section section--soft" id="about">
       <div class="container process__grid">
-        <div class="section-heading"><p class="eyebrow">How I work</p><h2>A clear process from detail to result.</h2></div>
+        <div class="section-heading"><p class="eyebrow">Our approach</p><h2>A clear route throughout the work process</h2></div>
         <div class="steps">
-          <div class="step"><span>01</span><div><h3>Send the detail</h3><p>Drawings, specifications, project requirements and the calculation required.</p></div></div>
-          <div class="step"><span>02</span><div><h3>I carry out the assessment</h3><p>The appropriate calculation method and 2D or 3D thermal model are applied according to the project requirements.</p></div></div>
+          <div class="step"><span>01</span><div><h3>Send the project information</h3><p>Drawings, specifications, project requirements and the calculation required.</p></div></div>
+          <div class="step"><span>02</span><div><h3>The assessment is carried out</h3><p>The appropriate calculation method and 2D or 3D thermal model are applied according to the project requirements.</p></div></div>
           <div class="step"><span>03</span><div><h3>Receive the results</h3><p>Clear calculation outputs and technical documentation for use within the wider project.</p></div></div>
         </div>
       </div>
     </section>
 
-    <section class="contact section" id="contact">
-      <div class="container contact__inner">
-        <div><p class="eyebrow">Start a project</p><h2>Need a thermal calculation?</h2></div>
-        <div><p>Send the relevant detail and required calculation.</p><ContactCta label="Contact" href={`mailto:${CONTACT_EMAIL}`} variant="inverse" location="home_cta" /></div>
-      </div>
-    </section>
+    <DiscussProjectSection location="home_cta" />
   </main>
   <SiteFooter />
 </BaseLayout>
@@ -92,14 +88,6 @@ const projects = [
   .step h3 { margin-bottom: 0.4rem; }
   .step p, .contact p { color: var(--color-slate); }
   .step p { margin-bottom: 0; font-size: 1rem; }
-  .contact { background: var(--color-teal); color: var(--color-white); }
-  .contact__inner { display: grid; grid-template-columns: 1fr 0.75fr; gap: 4rem; align-items: end; }
-  .contact .eyebrow, .contact p { color: var(--color-light-grey); }
-  .contact h2 { margin-bottom: 0; }
-  .contact__inner > div:last-child p { color: var(--color-white); }
-  .contact .button { border-color: var(--color-white); background: var(--color-white); color: var(--color-teal); }
-  .contact .button:hover, .contact .button:focus-visible { border-color: var(--color-charcoal); color: var(--color-white); }
-  .button span { margin-left: 0.6rem; }
   @media (max-width: 55rem) { .process__grid { gap: 4rem; } }
   @media (max-width: 44rem) {
     .hero { background-image:url("/assets/blueprints/background-template-1-mobile.svg"); }

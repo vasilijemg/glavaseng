@@ -1,0 +1,24 @@
+---
+import ContactCta from "./ContactCta.astro";
+import { CONTACT_EMAIL } from "../constants/site";
+
+interface Props { location?: string; title?: string; description?: string; }
+const { location = "project_cta", title = "Need a thermal calculation?", description = "Send the relevant detail and required calculation." } = Astro.props;
+---
+<section class="contact section">
+  <div class="container contact__inner">
+    <div><p class="eyebrow">Start a project</p><h2>{title}</h2></div>
+    <div><p>{description}</p><ContactCta label="Discuss a project" href={"mailto:" + CONTACT_EMAIL} variant="inverse" location={location} /></div>
+  </div>
+</section>
+
+<style>
+  .contact { padding-block: calc(var(--section-space) * 0.7); background: var(--color-teal); color: var(--color-white); }
+  .contact__inner { display: grid; grid-template-columns: 1fr 0.75fr; gap: 4rem; align-items: end; }
+  .contact__inner > div { display: flex; flex-direction: column; justify-content: flex-end; }
+  .contact__inner :global(.contact-cta) { align-self: flex-start; }
+  .contact .eyebrow, .contact p { color: var(--color-light-grey); }
+  .contact h2 { margin-bottom: 0; }
+  .contact__inner > div:last-child p { color: var(--color-white); }
+  @media (max-width: 44rem) { .contact__inner { grid-template-columns: 1fr; gap: 2.5rem; } }
+</style>
