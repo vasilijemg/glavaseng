@@ -11,6 +11,11 @@ try {
     if ($LASTEXITCODE -ne 0) {
         throw "Upload failed with exit code $LASTEXITCODE."
     }
+
+    ssh root@104.248.23.93 "chmod -R a+rX /var/www/glavasengineering"
+    if ($LASTEXITCODE -ne 0) {
+        throw "Setting web file permissions failed with exit code $LASTEXITCODE."
+    }
 } finally {
     Pop-Location
 }
