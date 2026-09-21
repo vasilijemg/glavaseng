@@ -50,8 +50,8 @@ const projects = [
     <section class="section" id="work">
       <div class="container">
         <div class="section-heading"><p class="eyebrow">Selected work</p><h2>Clear analysis for complex details</h2></div>
-        <div class="project-grid">{projects.map((project, index) => <ProjectCard {...project} href={"/work/" + workMeta[index].slug} />)}</div>
-        <div class="selected-work-cta"><ContactCta label="View more" href="/work" event="work_view_more" location="home_selected_work" inverted /></div>
+        <div class="project-grid">{projects.map((project, index) => <ProjectCard {...project} href={"/work/" + workMeta[index].slug + "/"} />)}</div>
+        <div class="selected-work-cta"><ContactCta label="View more" href="/work/" event="work_view_more" location="home_selected_work" inverted /></div>
       </div>
     </section>
 

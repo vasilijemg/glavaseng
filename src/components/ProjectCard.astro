@@ -7,7 +7,7 @@ interface Props {
     href?: string;
 }
 import ContactCta from "./ContactCta.astro";
-const {number, title, description, href = "/contact"} = Astro.props;
+const {number, title, description, href = "/contact/"} = Astro.props;
 const imagePath = "/assets/projects/" + Number(number) + ".1.jpg";
 ---
 <article class="project-card">

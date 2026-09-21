@@ -1,12 +1,12 @@
 ---
 const navigation = [
-  { label: "Services", href: "/services" },
-  { label: "Work", href: "/work" },
-  { label: "About", href: "/about" },
-  { label: "Contact", href: "/contact" },
+  { label: "Services", href: "/services/" },
+  { label: "Work", href: "/work/" },
+  { label: "About", href: "/about/" },
+  { label: "Contact", href: "/contact/" },
 ];
 
-const isCurrentPage = (href: string) => Astro.url.pathname === href || Astro.url.pathname.startsWith(`${href}/`);
+const isCurrentPage = (href: string) => Astro.url.pathname === href || Astro.url.pathname.startsWith(href);
 ---
 <header class="site-header">
   <div class="container site-header__inner">

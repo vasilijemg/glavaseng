@@ -1,7 +1,7 @@
 ---
 import "../styles/global.css";
 import Analytics from "../components/Analytics.astro";
-import { CONTACT_EMAIL, LINKEDIN_URL, SITE_URL } from "../constants/site";
+import { CONTACT_EMAIL, LINKEDIN_URL, SITE_URL, pageUrl } from "../constants/site";
 import { services } from "../data/services";
 import { work } from "../data/work";
 import { workMeta } from "../data/workMeta";
@@ -19,7 +19,7 @@ const pageDescriptions: Record<string, string> = {
 };
 services.forEach((service) => { pageDescriptions[`/services/${service.slug}`] = service.intro; });
 work.forEach((project, index) => { pageDescriptions[`/work/${workMeta[index].slug}`] = project.intro; });
-const metaDescription = description ?? pageDescriptions[Astro.url.pathname] ?? defaultDescription;
+const metaDescription = description ?? pageDescriptions[Astro.url.pathname.replace(/\/$/, "") || "/"] ?? defaultDescription;
 const structuredData = {
   "@context": "https://schema.org",
   "@type": "ProfessionalService",
@@ -44,12 +44,12 @@ const structuredData = {
     <meta name="theme-color" content="#ffffff" />
     <link rel="icon" type="image/svg+xml" href="/assets/brand/favicon.svg" />
     <link rel="preload" href="/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin />
-    <link rel="canonical" href={new URL(Astro.url.pathname, SITE_URL).toString()} />
+    <link rel="canonical" href={pageUrl(Astro.url.pathname)} />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="Glavas Engineering" />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={metaDescription} />
-    <meta property="og:url" content={new URL(Astro.url.pathname, SITE_URL).toString()} />
+    <meta property="og:url" content={pageUrl(Astro.url.pathname)} />
     <meta property="og:image" content={`${SITE_URL}/assets/og-image.svg`} />
     <meta property="og:image:type" content="image/svg+xml" />
     <meta property="og:image:width" content="1200" />
